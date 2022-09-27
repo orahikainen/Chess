@@ -1,0 +1,30 @@
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "board" class = "material-icons"></div>
+    <script type = "module">
+        import { convertToAN } from "./modules/functions.js";
+        import { Vector } from "./modules/types.js";
+        var board = document.getElementById("board");
+        for(let i = 1; i <= 8; i++){
+            for(let j = 1; j <= 8; j++){
+                var tile = document.createElement("div");
+                if(i % 2 == 0 && j % 2 == 1){
+                    tile.className = "tile dark";
+                }
+                else if(i % 2 == 1 && j % 2 == 0){
+                    tile.className = "tile dark";
+                }
+                else{
+                    tile.className = "tile light";
+                }
+                tile.id = convertToAN(new Vector(j,i));
+                board.appendChild(tile);
+            }
+        }
+    </script>
+    <script type = "module" src = "app.js"></script>
+</body>
