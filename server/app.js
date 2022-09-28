@@ -64,6 +64,8 @@ app.post('/getLoggedInUsers',(request, response) => {
   response.json("test");
 }) 
 
-server.listen(3000, () => {
-  console.log('App listening on port 3000');
+var port = process.env.PORT || 3000;
+
+server.listen(port, () => {
+  console.log('App listening on port ' + port);
 });
