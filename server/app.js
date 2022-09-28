@@ -2,15 +2,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const cors = require('cors');
-const dotenv = require('dotenv');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-dotenv.config();
 
 
-const dbService = require('./dbService');
+//const dbService = require('./dbService');
 
 app.use(cors());
 app.use(express.json());
