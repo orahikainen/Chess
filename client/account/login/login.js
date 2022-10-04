@@ -1,11 +1,9 @@
 function AttemptLogin(){
     const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
-
+    const passwordInput = document.getElementById("password")
     if(emailInput.value == "") return;
-    if(passwordInput.value == "") return;
-
-    fetch('http://localhost:3000/login', {
+    if(passwordInput.value == "") return
+    fetch('/login', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -15,14 +13,14 @@ function AttemptLogin(){
             password : passwordInput.value,
         })
     })
-    .then(res => res.json())
-    .then(text => {
-        if(!text.data){
+    .then(res => res.text())
+    .then(verified => {
+        if(!verified){
             emailInput.value = "";
             passwordInput.value = "";
             return;
         }
-        fetch('http://localhost:3000/getUsername', {
+        fetch('/getUsername', {
             headers: {
                 'Content-type': 'application/json'
             },
@@ -32,18 +30,17 @@ function AttemptLogin(){
                 password : passwordInput.value,
             })
         })
-        .then(res => res.json())
-        .then(text => {
-            Login(text.data[0].nimi);
+        .then(res => res.text())
+        .then(name => {
+            Login(name);
         }) 
-    });
-
+    })
 }
 function Login(username){
     document.cookie = "loggedIn = true; path=/";
     document.cookie = "Username = " + username + "; path=/";
-    location.href = "http://localhost:3000/main";
+    location.href = "/main";
 }
 function Register(){
-    location.href = "http://localhost:3000/account/register";
+    location.href = "/account/register";
 }

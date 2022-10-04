@@ -7,8 +7,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-
-//const dbService = require('./dbService');
+const dbService = require('./dbService');
 
 app.use(cors());
 app.use(express.json());
@@ -41,10 +40,10 @@ app.post('/login', (request, response) => {
   const password = request.body.password;
   
   const db = dbService.getDbServiceInstance();
-  const result = db.getEmailAndPassword(email,password)
+  const result = db.verifyLogin(email,password)
   
   result
-  .then(data => response.json({ data: data}))
+  .then(data => response.send(data))
   .catch(err => console.log(err));
 })
 
@@ -56,12 +55,12 @@ app.post('/getUsername', (request, response) => {
   const result = db.getUsername(email,password)
   
   result
-  .then(data => response.json({ data: data}))
+  .then(data => response.send(data))
   .catch(err => console.log(err));
 })
 
 app.post('/getLoggedInUsers',(request, response) => {
-  response.json("test");
+
 }) 
 
 var port = process.env.PORT || 3000;

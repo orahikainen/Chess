@@ -9,7 +9,7 @@ function AttemptRegister(){
     if(passwordInput.value.length < 8) return;
     if(numberInput.value == "") return;
 
-    fetch('http://localhost:3000/registerUser', {
+    fetch('/registerUser', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -29,5 +29,5 @@ function AttemptRegister(){
     numberInput.value = "";
 }
 function LogIn(){
-    location.href = "http://127.0.0.1:5500/client/account/login";
+    location.href = "/account/login";
 }

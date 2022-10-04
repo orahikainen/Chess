@@ -1,15 +1,15 @@
 function Main(){
     if(!document.cookie.includes("loggedIn=true") || !document.cookie.includes("Username")){
-        location.href = "http://127.0.0.1:5500/client/account/login";
+        location.href = "/account/login";
     }
     const username = document.cookie.split("Username=")[1].split(";")[0];
     document.getElementById("username").innerHTML = username;
 }
 function PlayAgainstBot(){
-    location.href = "http://127.0.0.1:5500/client/chess";
+    location.href = "/chess";
 }
 function PlayAgainstRandom(){
-    location.href = "http://127.0.0.1:5500/client/chess";
+    location.href = "/chess";
 }
 function PlayAgainstFriend(){
     const div = document.createElement("div");
@@ -37,7 +37,7 @@ function PlayAgainstFriend(){
 }
 function RequestSent(){
     const username = document.getElementById("nameInput").value;
-    fetch('http://localhost:3000/getLoggedInUsers', {
+    fetch('/getLoggedInUsers', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -90,6 +90,6 @@ function OptionClicked(name){
 function LogOut(){
     document.cookie = "loggedIn=; Max-Age=0; path=/;";
     document.cookie = "Username=; Max-Age=0; path=/;"
-    location.href = "http://127.0.0.1:5500/client/account/login";
+    location.href = "/account/login";
 }
 Main();
