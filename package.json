@@ -1,16 +1,32 @@
 {
-  "name": "chess",
+  "name": "svelte-app",
   "version": "1.0.0",
-  "description": "ches",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "watch": {
+    "build": {
+      "patterns": "client",
+      "extensions": "svelte"
+    }
   },
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c rollup-pages.config.js",
+    "dev": "rollup -c -w rollup-pages.config.js",
+    "client": "sirv client/public",
+    "watch": "concurrently \"npm-watch build\" \"nodemon server/app.js\""
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-multi-input": "^1.1.1",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0"
+  },
   "dependencies": {
-    "express": "^4.18.1",
+    "concurrently": "^7.4.0",
+    "npm-watch": "^0.11.0",
     "pg": "^8.8.0",
-    "socket.io": "^4.5.2"
+    "sirv-cli": "^1.0.0"
   }
 }

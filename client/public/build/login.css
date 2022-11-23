@@ -1,0 +1,4 @@
+body{background-color:rgb(75,75,75);margin:0px}
+#login-wrapper.svelte-53ohqk{position:absolute;color:white;font-family:Roboto;font-size:2vmin;border:0.25vmin solid black;border-radius:1vmin;background-color:rgb(50,50,50);width:40vmin;height:50vmin;left:50%;top:50%;transform:translate(-50%,-50%)}#email-wrapper.svelte-53ohqk{position:relative;margin-top:10%;margin-left:22.5%}#password-wrapper.svelte-53ohqk{position:relative;margin-top:10%;margin-left:22.5%}#register.svelte-53ohqk{position:relative;margin-top:12.5%;margin-left:34%;user-select:none}#login-button.svelte-53ohqk{position:relative;margin-top:12.5%;margin-left:35%;width:10vmin;height:4vmin;font-size:2vmin;font-weight:bold}input.svelte-53ohqk{width:20vmin;height:3vmin;font-size:2vmin}
+
+/*# sourceMappingURL=login.css.map */
