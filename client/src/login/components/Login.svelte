@@ -25,7 +25,7 @@
       });
     }
     function Login(username){
-      document.cookie = "Username = " + username + "; path=/";
+      document.cookie = "Username=" + username + "; SameSite=None; Secure; path=/;";
       location.href = "/main";
     }
     function Register(){

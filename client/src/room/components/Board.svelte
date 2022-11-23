@@ -14,7 +14,8 @@
 
 <script>
     UpdateTheme();
-    const playerColor = document.cookie.split("color=")[1].split(";")[0];
+    let playerColor = document.cookie.split("color=")[1]?.split(";")[0];
+    if(playerColor == undefined) playerColor = "white";
     function convertToAN(tile){
         var characters = ['a','b','c','d','e','f','g','h'];
         var tileConverted = characters[tile.x - 1] + tile.y;

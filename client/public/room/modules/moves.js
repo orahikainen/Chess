@@ -175,7 +175,7 @@ export function MovePiece(piece,move,turn,possibleMoves){
         }
     });
     if(succesfulMove){
-        movesList.push(move);
+        //movesList.push(new Move(move, ));
         return true;
     }
     return false;

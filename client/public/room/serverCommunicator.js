@@ -19,12 +19,11 @@ socket.on('getInfo', roomData => {
     roomdata = roomData;
     possibleMoves = CalculateMoves(pieces,"white");
     playerColor = username == roomData.player1.username ? "white" : "black";
-    document.cookie = "color=" + playerColor;
+    document.cookie = "color="+playerColor+"; SameSite=None; Secure; path=/;";
 });
 
 export function PlayerMoved(){
     socket.emit('move',{FEN:getFEN(),ID:roomdata.id});
-    //ClearBoard();
 }
 
 socket.on('move', FEN => {

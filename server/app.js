@@ -36,7 +36,6 @@ const ongoingGames = [];
 io.on('connection', (socket) => {
   const username = socket.handshake.headers.cookie.split("Username=")[1].split(";")[0];
   clients.push(new Client(socket.id, username));
-
   socket.on('sendRequest', (request) => {
     const receiver = clients.find(({username}) => username == request.receiver);
     if(receiver != undefined){
@@ -74,7 +73,7 @@ io.on('connection', (socket) => {
   });
   socket.on('joinGame', Username => {
     const user = clients.find(({username}) => username == Username);
-    const roomid = socket.handshake.headers.referer.split("http://localhost:3000/room/")[1];
+    const roomid = socket.handshake.headers.referer.split("/room/")[1];
     const room = ongoingGames.find(({id}) => id == roomid);
     io.to(user.sessionid).emit('getInfo',room);
     socket.join(room.id);
