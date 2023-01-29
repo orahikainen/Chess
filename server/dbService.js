@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-const connectionString = 'postgres://dbuser:bFDv6cWN5OeGPf4RVH4owe85kDQ0CT2g@dpg-ccq1tmien0hr84nkjg4g-a.frankfurt-postgres.render.com/chessdb?ssl=true';
+const connectionString = '';
 let instance = null;
 const pool = new Pool({
   connectionString,
